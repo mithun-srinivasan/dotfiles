@@ -271,7 +271,5 @@ code ~/.config/fastfetch/config.jsonc
 
 - [ ] Cava
 - [ ] Neovim
-- [ ] GlazeWM
-- [ ] Zebar
 - [ ] Yazi
 - [ ] Hyprland (Linux)
