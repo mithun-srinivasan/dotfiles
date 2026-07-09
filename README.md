@@ -1,98 +1,61 @@
 # 🛠️ My Windows Terminal Setup
 
-> A modern, Linux-inspired Windows development environment built with PowerShell 7, Scoop, and open-source CLI tools.
+> **A modern Linux-inspired Windows development environment** built with **PowerShell 7**, **Scoop**, and a collection of powerful open-source CLI tools.
+
+<p align="center">
+
+![Windows](https://img.shields.io/badge/OS-Windows_11-blue?style=for-the-badge&logo=windows)
+![PowerShell](https://img.shields.io/badge/Shell-PowerShell_7-5391FE?style=for-the-badge&logo=powershell)
+![Scoop](https://img.shields.io/badge/Package_Manager-Scoop-4A90E2?style=for-the-badge)
+![Open Source](https://img.shields.io/badge/Open_Source-❤-success?style=for-the-badge)
+
+</p>
 
 ---
 
-# ✨ Overview
+# ✨ Features
 
-This setup transforms Windows into a fast, keyboard-driven development environment focused on:
-
-- ⚡ Productivity
-- 💻 Programming
-- 🌳 Git workflows
-- 📂 File management
-- 🔍 Searching
-- 🎨 Beautiful terminal UI
-
----
-
-# 📦 Core Environment
-
-| Tool | Purpose |
-|------|---------|
-| 🪟 Windows Terminal | Modern terminal emulator with tabs, panes, GPU acceleration and themes |
-| ⚡ PowerShell 7 | Cross-platform shell |
-| ⭐ Starship | Fast customizable shell prompt |
-| 🚀 Fastfetch | System information on startup |
+- ⚡ Lightning-fast terminal workflow
+- 🎨 Beautiful Starship prompt
+- 📂 Modern file navigation
+- 🔍 Powerful fuzzy searching
+- 🌳 Git-first development
+- 📝 Terminal-based coding
+- 🚀 Easy to reproduce using Scoop & dotfiles
 
 ---
 
-# 📂 Navigation & File Management
+# 📦 Installed Software
 
-| Tool | Purpose |
-|------|---------|
-| 📂 eza | Modern replacement for `ls` |
-| 📄 bat | Syntax-highlighted file viewer |
-| 📍 zoxide | Smart directory jumper |
-| 📁 Superfile | Terminal file manager with previews |
-
----
-
-# 🔍 Searching
-
-| Tool | Purpose |
-|------|---------|
-| 🔎 fzf | Fuzzy finder |
-| 🦀 ripgrep (`rg`) | Ultra-fast text search |
-| 📁 fd | Fast file finder |
+| Category | Tools |
+|-----------|-------|
+| 🖥 Terminal | Windows Terminal, PowerShell 7 |
+| ✨ Appearance | Starship, Fastfetch |
+| 📂 Navigation | eza, zoxide, Superfile |
+| 🔍 Search | fzf, ripgrep, fd |
+| 🌳 Git | Git, Delta, LazyGit |
+| 📝 Editor | Neovim |
+| 🛠 Utilities | bat, jq, FFmpeg, 7-Zip |
 
 ---
 
-# 🌳 Git
-
-| Tool | Purpose |
-|------|---------|
-| Git | Version control |
-| 🌿 LazyGit | Terminal Git UI |
-| 🎨 Delta | Syntax-highlighted Git diffs |
-
----
-
-# 🛠 Utilities
-
-| Tool | Purpose |
-|------|---------|
-| 📋 jq | JSON processor |
-| 🎬 FFmpeg | Audio/video toolkit |
-| 📦 7-Zip | Compression utility |
-
----
-
-# 📝 Editor
-
-| Tool | Purpose |
-|------|---------|
-| 📝 Neovim | Terminal-based code editor |
-
----
-
-# 🚀 Aliases
+# 🚀 PowerShell Aliases
 
 | Alias | Command |
-|------|---------|
+|--------|---------|
 | `ls` | `eza --icons` |
 | `ll` | `eza -lah --icons` |
 | `lt` | `eza --tree --icons` |
 | `cat` | `bat` |
 | `z` | zoxide |
-| `spf` | Superfile |
+| `spf` | superfile |
 
 ---
 
-# 📂 File Navigation
+# ⚡ Command Cheat Sheet
 
-## eza
+<details>
+<summary><b>📂 eza (Modern ls)</b></summary>
 
 ```powershell
 ls
@@ -101,11 +64,15 @@ lt
 ls -a
 ls --git
 ls --sort newest
+eza -T -L 3
 ```
+
+</details>
 
 ---
 
-## Superfile
+<details>
+<summary><b>📁 Superfile</b></summary>
 
 Launch
 
@@ -113,104 +80,227 @@ Launch
 spf
 ```
 
-Useful Keys
+### Navigation
 
-| Key | Action |
-|------|--------|
+| Shortcut | Action |
+|----------|--------|
+| ↑ / ↓ | Move |
 | Enter | Open |
-| Backspace | Parent folder |
+| Backspace | Parent directory |
+| Home | Home folder |
+| End | Last item |
+
+### File Operations
+
+| Shortcut | Action |
+|----------|--------|
 | Space | Select |
+| a | Select all |
+| A | Deselect all |
 | y | Copy |
 | x | Cut |
 | p | Paste |
 | r | Rename |
 | d | Delete |
+| n | New file/folder |
+
+### Search
+
+| Shortcut | Action |
+|----------|--------|
 | / | Search |
+| Esc | Cancel search |
+
+### View
+
+| Shortcut | Action |
+|----------|--------|
 | . | Toggle hidden files |
+| Tab | Next panel |
+| Shift + Tab | Previous panel |
+| F5 | Refresh |
+
+### Misc
+
+| Shortcut | Action |
+|----------|--------|
+| ? | Help |
 | q | Quit |
+
+</details>
 
 ---
 
-## bat
+<details>
+<summary><b>📄 bat</b></summary>
 
 ```powershell
 cat file.txt
+bat Demo.java
 bat *.java
 bat --list-themes
+bat --style=numbers
 ```
+
+</details>
 
 ---
 
-## zoxide
+<details>
+<summary><b>📍 zoxide</b></summary>
 
 ```powershell
+z desktop
 z vscode
 z downloads
-z desktop
+z documents
 zoxide query -l
 ```
 
+</details>
+
 ---
 
-# 🔍 Searching
+<details>
+<summary><b>🔍 fzf</b></summary>
 
-## ripgrep
+Search files
+
+```powershell
+fzf
+```
+
+Search history
+
+```
+Ctrl + R
+```
+
+Search folders
+
+```powershell
+Get-ChildItem -Directory | fzf
+```
+
+Open selected file
+
+```powershell
+code (fzf)
+```
+
+</details>
+
+---
+
+<details>
+<summary><b>🦀 ripgrep</b></summary>
 
 ```powershell
 rg "main"
 rg -i hello
 rg "Scanner" *.java
+rg TODO
 ```
 
-## fd
-
-```powershell
-fd Demo
-fd --type d
-fd .java
-```
-
-## fzf
-
-```powershell
-fzf
-Ctrl + R
-Get-ChildItem -Directory | fzf
-```
+</details>
 
 ---
 
-# 🌳 Git
+<details>
+<summary><b>📁 fd</b></summary>
+
+```powershell
+fd Demo
+fd .java
+fd --type d
+fd --hidden
+```
+
+</details>
+
+---
+
+<details>
+<summary><b>🌳 Git</b></summary>
 
 ```powershell
 git status
+git add .
+git commit -m "message"
+git push
+git pull
 git diff
 lazygit
 ```
 
-Delta is automatically used as the Git pager.
+Delta is configured as the default Git pager.
+
+</details>
 
 ---
 
-# 📝 Neovim
+<details>
+<summary><b>📝 Neovim</b></summary>
+
+Launch
 
 ```powershell
 nvim
+```
+
+Open file
+
+```powershell
 nvim Demo.java
 ```
 
-Basic commands
+### Basic Commands
 
 ```
 :w
 :q
 :wq
 :q!
+:x
 ```
+
+### Navigation
+
+```
+h j k l
+gg
+G
+0
+$
+```
+
+### Editing
+
+```
+i
+a
+o
+dd
+yy
+p
+u
+Ctrl+r
+```
+
+### Search
+
+```
+/text
+n
+N
+```
+
+</details>
 
 ---
 
-# ⚙️ Configuration
+<details>
+<summary><b>⚙️ Configuration</b></summary>
 
 Reload profile
 
@@ -218,7 +308,7 @@ Reload profile
 . $PROFILE
 ```
 
-Edit PowerShell profile
+PowerShell profile
 
 ```powershell
 code $PROFILE
@@ -236,25 +326,45 @@ Fastfetch
 code ~/.config/fastfetch/config.jsonc
 ```
 
+Git
+
+```powershell
+code ~/.gitconfig
+```
+
+Windows Terminal
+
+```powershell
+wt settings
+```
+
+</details>
+
 ---
 
 # ⌨️ Keyboard Shortcuts
 
 | Shortcut | Action |
 |-----------|--------|
-| Ctrl + R | Search history |
+| Ctrl + R | Fuzzy search command history |
 | Ctrl + L | Clear terminal |
-| Ctrl + C | Stop process |
+| Ctrl + C | Stop running process |
 | Ctrl + Shift + C | Copy |
 | Ctrl + Shift + V | Paste |
-| Ctrl + Shift + P | Windows Terminal Command Palette |
+| Ctrl + Shift + T | New terminal tab |
+| Ctrl + Shift + W | Close tab |
+| Ctrl + Shift + P | Command Palette |
+| Alt + Shift + D | Split pane |
+| Alt + Left | Previous tab |
+| Alt + Right | Next tab |
+| F11 | Toggle fullscreen |
 
 ---
 
 # 📁 Configuration Files
 
-| File | Purpose |
-|------|---------|
+| File | Location |
+|------|----------|
 | PowerShell Profile | `Documents/PowerShell/Microsoft.PowerShell_profile.ps1` |
 | Windows Terminal | `settings.json` |
 | Starship | `~/.config/starship.toml` |
@@ -270,31 +380,61 @@ winget install Microsoft.PowerShell
 winget install Microsoft.WindowsTerminal
 
 scoop install `
+git `
 eza bat starship fastfetch `
-zoxide fzf fd ripgrep jq `
-git delta lazygit `
+zoxide fzf fd ripgrep `
+jq delta lazygit `
 superfile neovim `
 ffmpeg 7zip
 ```
 
 ---
 
-# 💡 Why This Setup?
+# 📸 Preview
 
-- ⚡ Fast keyboard-driven workflow
-- 📂 Better file navigation
-- 🔍 Powerful project-wide searching
-- 🌳 Efficient Git workflow
-- 📝 Terminal-first development
-- 🎨 Clean and modern terminal interface
-- 🔄 Easy to reproduce with dotfiles
+> *(Add screenshots here)*
+
+```
+Windows Terminal
+├── Starship Prompt
+├── Fastfetch
+├── Superfile
+└── Neovim
+```
 
 ---
 
-# 🚀 Future Plans
+# 🎯 Why This Setup?
 
-- [ ] Hyprland
-- [ ] Arch Linux
+- 🚀 Faster than stock PowerShell
+- 📂 Modern file management
+- 🔍 Powerful searching
+- 🌳 Better Git workflow
+- 📝 Terminal-first coding
+- 🎨 Beautiful interface
+- 💻 Linux-like experience on Windows
+- 🔄 Easily reproducible with Scoop and dotfiles
+
+---
+
+# 🚀 Roadmap
+
+- [x] Windows Terminal
+- [x] PowerShell 7
+- [x] Starship
+- [x] Fastfetch
+- [x] Superfile
+- [x] Neovim
+- [x] LazyGit
 - [ ] Tmux
-- [ ] Custom Neovim configuration
-- [ ] Personal dotfiles repository
+- [ ] Arch Linux
+- [ ] Hyprland
+- [ ] Personal Dotfiles Repository
+
+---
+
+<p align="center">
+
+⭐ If you like this setup, feel free to use it as inspiration for your own terminal!
+
+</p>
