@@ -1,16 +1,6 @@
 # 🛠️ My Windows Terminal Setup
 
 > **A modern Linux-inspired Windows development environment** built with **PowerShell 7**, **Scoop**, and a collection of powerful open-source CLI tools.
-
-<p align="center">
-
-![Windows](https://img.shields.io/badge/OS-Windows_11-blue?style=for-the-badge&logo=windows)
-![PowerShell](https://img.shields.io/badge/Shell-PowerShell_7-5391FE?style=for-the-badge&logo=powershell)
-![Scoop](https://img.shields.io/badge/Package_Manager-Scoop-4A90E2?style=for-the-badge)
-![Open Source](https://img.shields.io/badge/Open_Source-❤-success?style=for-the-badge)
-
-</p>
-
 ---
 
 # ✨ Features
