@@ -1,46 +1,92 @@
 # 🛠️ My Windows Terminal Setup
 
-A modern, Linux-inspired PowerShell development environment built for programming, Git, and productivity.
+> A modern, Linux-inspired Windows development environment built with PowerShell 7, Scoop, and open-source CLI tools.
 
 ---
 
-# ✨ Installed Software
+# ✨ Overview
+
+This setup transforms Windows into a fast, keyboard-driven development environment focused on:
+
+- ⚡ Productivity
+- 💻 Programming
+- 🌳 Git workflows
+- 📂 File management
+- 🔍 Searching
+- 🎨 Beautiful terminal UI
+
+---
+
+# 📦 Core Environment
 
 | Tool | Purpose |
 |------|---------|
-| 🪟 Windows Terminal | Modern terminal with tabs, panes, GPU acceleration and customization. |
-| ⚡ PowerShell 7 | Fast, cross-platform shell replacing Windows PowerShell 5.1. |
-| ⭐ Starship | Minimal, blazing-fast prompt with Git, Python, Node.js and more. |
-| 🚀 Fastfetch | Beautiful system information displayed whenever the terminal opens. |
-| 📂 eza | Modern replacement for `ls` with icons, Git status and tree view. |
-| 📄 bat | Better `cat` with syntax highlighting, paging and Git integration. |
-| 📍 zoxide | Smart replacement for `cd` that learns frequently visited folders. |
-| 🔍 fzf | Interactive fuzzy finder for files, folders, history and commands. |
-| 🦀 ripgrep (`rg`) | Extremely fast recursive text search across projects. |
-| 📁 fd | Simple and lightning-fast alternative to `find`. |
-| 📋 jq | Powerful JSON parser and formatter. |
-| 📑 poppler | PDF utilities (`pdfinfo`, `pdftotext`, `pdfimages`, etc.). |
-| 🎬 FFmpeg | Swiss-army knife for video, audio and media conversion. |
-| 📦 7-Zip | File compression and extraction utilities. |
-| 🔎 file | Detects the real file type instead of relying on file extensions. |
-| 📝 Neovim | Modern Vim-based editor for coding inside the terminal. |
-| 📁 Yazi | Fast terminal file manager written in Rust. |
-| 🎨 Delta | Beautiful syntax-highlighted Git diffs. |
-| 🌳 LazyGit *(planned)* | Terminal UI for Git workflows. |
-| 🎵 Cava *(planned)* | Audio spectrum visualizer for the terminal. |
+| 🪟 Windows Terminal | Modern terminal emulator with tabs, panes, GPU acceleration and themes |
+| ⚡ PowerShell 7 | Cross-platform shell |
+| ⭐ Starship | Fast customizable shell prompt |
+| 🚀 Fastfetch | System information on startup |
 
 ---
 
-# 🚀 PowerShell Aliases
+# 📂 Navigation & File Management
 
-| Command | Runs |
-|----------|------|
+| Tool | Purpose |
+|------|---------|
+| 📂 eza | Modern replacement for `ls` |
+| 📄 bat | Syntax-highlighted file viewer |
+| 📍 zoxide | Smart directory jumper |
+| 📁 Superfile | Terminal file manager with previews |
+
+---
+
+# 🔍 Searching
+
+| Tool | Purpose |
+|------|---------|
+| 🔎 fzf | Fuzzy finder |
+| 🦀 ripgrep (`rg`) | Ultra-fast text search |
+| 📁 fd | Fast file finder |
+
+---
+
+# 🌳 Git
+
+| Tool | Purpose |
+|------|---------|
+| Git | Version control |
+| 🌿 LazyGit | Terminal Git UI |
+| 🎨 Delta | Syntax-highlighted Git diffs |
+
+---
+
+# 🛠 Utilities
+
+| Tool | Purpose |
+|------|---------|
+| 📋 jq | JSON processor |
+| 🎬 FFmpeg | Audio/video toolkit |
+| 📦 7-Zip | Compression utility |
+
+---
+
+# 📝 Editor
+
+| Tool | Purpose |
+|------|---------|
+| 📝 Neovim | Terminal-based code editor |
+
+---
+
+# 🚀 Aliases
+
+| Alias | Command |
+|------|---------|
 | `ls` | `eza --icons` |
 | `ll` | `eza -lah --icons` |
 | `lt` | `eza --tree --icons` |
 | `cat` | `bat` |
-| `z` | Smart directory jumping (zoxide) |
-| `y` | Launch Yazi file manager |
+| `z` | zoxide |
+| `spf` | Superfile |
 
 ---
 
@@ -48,61 +94,48 @@ A modern, Linux-inspired PowerShell development environment built for programmin
 
 ## eza
 
-List files
-
 ```powershell
 ls
-```
-
-Detailed list
-
-```powershell
 ll
-```
-
-Tree view
-
-```powershell
 lt
-```
-
-Hidden files
-
-```powershell
 ls -a
-```
-
-Git status
-
-```powershell
 ls --git
-```
-
-Newest files
-
-```powershell
 ls --sort newest
 ```
 
 ---
 
+## Superfile
+
+Launch
+
+```powershell
+spf
+```
+
+Useful Keys
+
+| Key | Action |
+|------|--------|
+| Enter | Open |
+| Backspace | Parent folder |
+| Space | Select |
+| y | Copy |
+| x | Cut |
+| p | Paste |
+| r | Rename |
+| d | Delete |
+| / | Search |
+| . | Toggle hidden files |
+| q | Quit |
+
+---
+
 ## bat
 
-View a file
-
 ```powershell
-cat Demo.java
-```
-
-View multiple files
-
-```powershell
+cat file.txt
 bat *.java
-```
-
-Theme list
-
-```powershell
 bat --list-themes
 ```
 
@@ -110,23 +143,10 @@ bat --list-themes
 
 ## zoxide
 
-Jump instantly
-
 ```powershell
 z vscode
-```
-
-```powershell
-z desktop
-```
-
-```powershell
 z downloads
-```
-
-Show learned folders
-
-```powershell
+z desktop
 zoxide query -l
 ```
 
@@ -134,225 +154,58 @@ zoxide query -l
 
 # 🔍 Searching
 
-## fzf
-
-Search command history
-
-```
-Ctrl + R
-```
-
-Search files
-
-```powershell
-fzf
-```
-
-Search folders
-
-```powershell
-Get-ChildItem -Directory | fzf
-```
-
-Open selected file
-
-```powershell
-code (fzf)
-```
-
----
-
 ## ripgrep
-
-Search text inside an entire project
 
 ```powershell
 rg "main"
-```
-
-Search only Java files
-
-```powershell
+rg -i hello
 rg "Scanner" *.java
 ```
 
-Ignore case
-
-```powershell
-rg -i hello
-```
-
----
-
 ## fd
-
-Find files
 
 ```powershell
 fd Demo
-```
-
-Find Java files
-
-```powershell
+fd --type d
 fd .java
 ```
 
-Find directories
+## fzf
 
 ```powershell
-fd --type d
-```
-
----
-
-# 📁 Yazi
-
-Launch
-
-```powershell
-y
-```
-
-Common Keys
-
-| Key | Action |
-|------|--------|
-| Enter | Open |
-| Backspace | Go back |
-| h | Parent folder |
-| l | Open folder |
-| Space | Select |
-| q | Quit |
-
----
-
-# 📝 Neovim
-
-Open editor
-
-```powershell
-nvim
-```
-
-Open a file
-
-```powershell
-nvim Demo.java
-```
-
-Quit
-
-```
-:q
-```
-
-Save
-
-```
-:w
-```
-
-Save & Quit
-
-```
-:wq
-```
-
-Force Quit
-
-```
-:q!
+fzf
+Ctrl + R
+Get-ChildItem -Directory | fzf
 ```
 
 ---
 
 # 🌳 Git
 
-Status
-
 ```powershell
 git status
-```
-
-Beautiful diff
-
-```powershell
-git diff | delta
-```
-
-Launch LazyGit *(when installed)*
-
-```powershell
+git diff
 lazygit
 ```
 
----
-
-# 📄 JSON
-
-Pretty-print JSON
-
-```powershell
-cat package.json | jq
-```
+Delta is automatically used as the Git pager.
 
 ---
 
-# 📑 PDF Tools
-
-Extract text
+# 📝 Neovim
 
 ```powershell
-pdftotext file.pdf
+nvim
+nvim Demo.java
 ```
 
-PDF information
+Basic commands
 
-```powershell
-pdfinfo file.pdf
 ```
-
----
-
-# 🎬 FFmpeg
-
-Convert video
-
-```powershell
-ffmpeg -i input.mp4 output.mkv
-```
-
-Extract audio
-
-```powershell
-ffmpeg -i input.mp4 audio.mp3
-```
-
----
-
-# 📦 7-Zip
-
-Extract archive
-
-```powershell
-7z x archive.zip
-```
-
-Create archive
-
-```powershell
-7z a backup.zip folder
-```
-
----
-
-# 🔎 File Type
-
-Detect actual file type
-
-```powershell
-file image.png
+:w
+:q
+:wq
+:q!
 ```
 
 ---
@@ -371,13 +224,13 @@ Edit PowerShell profile
 code $PROFILE
 ```
 
-Edit Starship
+Starship
 
 ```powershell
 code ~/.config/starship.toml
 ```
 
-Edit Fastfetch
+Fastfetch
 
 ```powershell
 code ~/.config/fastfetch/config.jsonc
@@ -387,22 +240,21 @@ code ~/.config/fastfetch/config.jsonc
 
 # ⌨️ Keyboard Shortcuts
 
-| Shortcut | Purpose |
-|-----------|---------|
-| Ctrl + R | Fuzzy search command history |
+| Shortcut | Action |
+|-----------|--------|
+| Ctrl + R | Search history |
 | Ctrl + L | Clear terminal |
-| Ctrl + C | Stop running process |
+| Ctrl + C | Stop process |
 | Ctrl + Shift + C | Copy |
 | Ctrl + Shift + V | Paste |
-| Alt + Shift + D | Duplicate pane |
-| Ctrl + Shift + P | Windows Terminal command palette |
+| Ctrl + Shift + P | Windows Terminal Command Palette |
 
 ---
 
-# 📁 Dotfiles
+# 📁 Configuration Files
 
-| File | Location |
-|------|----------|
+| File | Purpose |
+|------|---------|
 | PowerShell Profile | `Documents/PowerShell/Microsoft.PowerShell_profile.ps1` |
 | Windows Terminal | `settings.json` |
 | Starship | `~/.config/starship.toml` |
@@ -411,23 +263,38 @@ code ~/.config/fastfetch/config.jsonc
 
 ---
 
-# 💡 Why This Setup?
+# 📦 Installation
 
-- 🚀 Faster terminal workflow
-- 📂 Better file navigation
-- 🔍 Instant project-wide searching
-- 📄 Syntax-highlighted file viewing
-- 📁 Smart directory jumping
-- ⚡ Terminal-based file manager
-- 📝 Powerful terminal text editor
-- 🌳 Better Git experience
-- 🎨 Beautiful prompt and terminal UI
-- 🔄 Easy to reproduce using dotfiles
+```powershell
+winget install Microsoft.PowerShell
+winget install Microsoft.WindowsTerminal
+
+scoop install `
+eza bat starship fastfetch `
+zoxide fzf fd ripgrep jq `
+git delta lazygit `
+superfile neovim `
+ffmpeg 7zip
+```
 
 ---
 
-# 📦 Planned Additions
+# 💡 Why This Setup?
 
-- [ ] LazyGit
-- [ ] Cava
-- [ ] Hyprland (Linux)
+- ⚡ Fast keyboard-driven workflow
+- 📂 Better file navigation
+- 🔍 Powerful project-wide searching
+- 🌳 Efficient Git workflow
+- 📝 Terminal-first development
+- 🎨 Clean and modern terminal interface
+- 🔄 Easy to reproduce with dotfiles
+
+---
+
+# 🚀 Future Plans
+
+- [ ] Hyprland
+- [ ] Arch Linux
+- [ ] Tmux
+- [ ] Custom Neovim configuration
+- [ ] Personal dotfiles repository
