@@ -5,6 +5,7 @@
 scan_timeout = 100
 command_timeout = 1000
 add_newline = true
+show_reset_command = true
 
 format = """
 $directory\
@@ -29,18 +30,38 @@ style = "bold purple"
 
 [git_status]
 style = "bold red"
+enabled = true
+
+[git_commit]
+format = "($commit)"
+style = "yellow"
+
+[git_branch_overflow]
+symbol = "…"
+
+[git_diff]
+styles = {
+    added = "green bold",
+    modified = "yellow bold",
+    deleted = "red bold"
+}
 
 [python]
 symbol = "🐍 "
+style = "cyan"
+show_versions = true
 
 [nodejs]
 symbol = "⬢ "
+style = "green"
 
 [golang]
 symbol = "🐹 "
+style = "magenta"
 
 [rust]
 symbol = "🦀 "
+style = "red"
 
 [cmd_duration]
 min_time = 1000

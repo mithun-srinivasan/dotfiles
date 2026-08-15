@@ -20,7 +20,7 @@
 | Category | Tools |
 |-----------|-------|
 | 🖥 Terminal | Windows Terminal, PowerShell 7 |
-| ✨ Appearance | Starship, Fastfetch |
+| ✨ Appearance | Starship, Fastfetch, Superfile |
 | 📂 Navigation | eza, zoxide, Superfile |
 | 🔍 Search | fzf, ripgrep, fd |
 | 🌳 Git | Git, Delta, LazyGit |
@@ -327,6 +327,19 @@ Windows Terminal
 ```powershell
 wt settings
 ```
+
+</details>
+
+---
+
+<details>
+<summary><b>⚡ Fastfetch</b></summary>
+
+```powershell
+fastfetch
+```
+
+Displays system information with a Catppuccin Mocha theme.
 
 </details>
 

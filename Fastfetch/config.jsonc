@@ -1,0 +1,69 @@
+{
+  "colors": "Catppuccin Mocha",
+  "display_mode": "system",
+  "deprecated": {
+    "display_mode": false
+  },
+  "export_platform": "windows",
+  "blocks": [
+    {
+      "type": "os",
+      "style": "empty"
+    },
+    {
+      "type": "cpu",
+      "style": "ascii",
+      "ascii_char": ""
+    },
+    {
+      "type": "memory",
+      "style": "ascii",
+      "ascii_char": ""
+    },
+    {
+      "type": "disk",
+      "style": "ascii",
+      "ascii_char": ""
+    },
+    {
+      "type": "battery",
+      "style": "ascii",
+      "ascii_char": ""
+    },
+    {
+      "type": "disk_usage",
+      "style": "ascii",
+      "ascii_char": ""
+    },
+    {
+      "type": "timestamp",
+      "style": "simple",
+      "date_format": "dd/mm/yyyy",
+      "time_format": "HH:MM:ss"
+    },
+    {
+      "type": "host",
+      "style": "empty"
+    },
+    {
+      "type": "python",
+      "style": "full",
+      "symbol": "🐍 "
+    },
+    {
+      "type": "node",
+      "style": "full",
+      "symbol": "⬢ "
+    },
+    {
+      "type": "golang",
+      "style": "full",
+      "symbol": "🐹 "
+    },
+    {
+      "type": "rust",
+      "style": "full",
+      "symbol": "🦀 "
+    }
+  ]
+}
