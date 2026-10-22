@@ -1,8 +1,13 @@
+# ============================================
+#  PowerShell 7 profile
+#  https://github.com/mithun-srinivasan/dotfiles
+# ============================================
+
 Invoke-Expression (& starship init powershell)
 Invoke-Expression (& { (zoxide init powershell | Out-String) })
 
-Remove-Item Alias:ls -ErrorAction SilentlyContinue
-Remove-Item Alias:cat -ErrorAction SilentlyContinue
+if (Test-Path Alias:ls)  { Remove-Item Alias:ls  -Force }
+if (Test-Path Alias:cat) { Remove-Item Alias:cat -Force }
 
 function ls {
     eza --icons @args
@@ -25,7 +30,7 @@ function cls {
 }
 
 function c {
-    code .
+    code . @args
 }
 
 function g {
@@ -36,6 +41,10 @@ function lg {
     lazygit
 }
 
+function neovim {
+    nvim @args
+}
+
 if ($Host.Name -eq "ConsoleHost" -and $PWD.Path -eq $HOME) {
     fastfetch
 }
@@ -44,7 +53,7 @@ Set-PsReadLineKeyHandler -Key Ctrl+r -ScriptBlock {
     $command = Get-History |
         Select-Object -ExpandProperty CommandLine |
         Sort-Object -Unique |
-        fzf --height 40%
+        fzf --height 40% --reverse
 
     if ($command) {
         [Microsoft.PowerShell.PSConsoleReadLine]::RevertLine()

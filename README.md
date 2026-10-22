@@ -36,7 +36,12 @@
 | `ls` | `eza --icons` |
 | `ll` | `eza -lah --icons` |
 | `lt` | `eza --tree --icons` |
-| `cat` | `bat` |
+| `cat` | `bat --paging=never` |
+| `cls` | `Clear-Host` |
+| `c` | `code .` |
+| `g` | `git` |
+| `lg` | `lazygit` |
+| `neovim` | `nvim` |
 | `z` | zoxide |
 | `spf` | superfile |
 
@@ -341,6 +346,24 @@ fastfetch
 
 Displays system information with a Catppuccin Mocha theme.
 
+The logo is fastfetch's built-in `Windows 11_small`. Fastfetch cannot ship the
+Microsoft trademark, so that entry is a text placeholder. If you want a real
+Windows 11 mark instead, `Fastfetch/windows-logo.ans` in this repo is a ready-made
+four-pane one — copy it to `~/.config/fastfetch/windows-logo.ans` and switch the
+`logo` block to:
+
+```json
+"logo": {
+  "type": "file-raw",
+  "source": "%USERPROFILE%/.config/fastfetch/windows-logo.ans",
+  "padding": { "top": 0, "bottom": 0, "left": 0, "right": 3 }
+}
+```
+
+> Note: fastfetch **silently** falls back to its built-in placeholder art if the logo
+> file cannot be found, and it does not resolve relative paths against the config
+> directory — `%USERPROFILE%` expansion is the reliable form.
+
 </details>
 
 ---
@@ -354,13 +377,24 @@ Displays system information with a Catppuccin Mocha theme.
 | Ctrl + C | Stop running process |
 | Ctrl + Shift + C | Copy |
 | Ctrl + Shift + V | Paste |
+| Ctrl + Shift + A | Select all |
+| Ctrl + Shift + F | Find text |
 | Ctrl + Shift + T | New terminal tab |
 | Ctrl + Shift + W | Close tab |
+| Ctrl + Shift + D | Duplicate tab |
+| Ctrl + Shift + Space | New tab dropdown |
 | Ctrl + Shift + P | Command Palette |
 | Alt + Shift + D | Split pane |
-| Alt + Left | Previous tab |
-| Alt + Right | Next tab |
+| Ctrl + Tab | Next tab |
+| Ctrl + Shift + Tab | Previous tab |
+| Ctrl + Alt + 1…8 | Jump to tab by index |
+| Shift + Enter | Send Shift+Enter (kitty protocol) |
 | F11 | Toggle fullscreen |
+
+> **Note:** the keybindings in `WindowsTerminal/settings.json` rely on Windows Terminal
+> **1.24+** and the root `actions` array. Older builds only understand inline
+> `{"id": "...", "keys": "..."}` pairs, and an unknown `id` silently overrides the
+> built-in binding — that is what breaks `Ctrl+Tab` on older setups.
 
 ---
 
@@ -372,23 +406,36 @@ Displays system information with a Catppuccin Mocha theme.
 | Windows Terminal | `settings.json` |
 | Starship | `~/.config/starship.toml` |
 | Fastfetch | `~/.config/fastfetch/config.jsonc` |
+| Fastfetch logo (optional) | `~/.config/fastfetch/windows-logo.ans` |
 | Git | `~/.gitconfig` |
+
+> **Windows Terminal:** `settings.json` holds a *reference* configuration. Merge it into
+> your own (`%LOCALAPPDATA%\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json`)
+> rather than overwriting it, so your existing profiles survive.
 
 ---
 
 # 📦 Installation
 
 ```powershell
+# Terminal + shell
 winget install Microsoft.PowerShell
 winget install Microsoft.WindowsTerminal
 
+# Scoop buckets (lazygit lives in "extras")
+scoop bucket add extras
+
+# Core tooling
 scoop install `
-git `
+git git-lfs `
 eza bat starship fastfetch `
 zoxide fzf fd ripgrep `
-jq delta lazygit `
+jq lazygit `
 superfile neovim `
 ffmpeg 7zip
+
+# delta is not published in any Scoop bucket - use winget
+winget install dandavison.delta
 ```
 
 ---

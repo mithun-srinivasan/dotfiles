@@ -1,72 +1,110 @@
-# ===========================
-# Starship Configuration
-# ===========================
+"$schema" = "https://starship.rs/config-schema.json"
 
-scan_timeout = 100
-command_timeout = 1000
+# ---------------------------------------------------------------------------
+# Catppuccin Mocha prompt - rich left side, status/battery/clock on the right
+# ---------------------------------------------------------------------------
+format = "$os$username$hostname$directory$git_branch$git_status$git_commit$java$nodejs$python$golang$rust$cmd_duration$character"
+right_format = "$status$battery$time"
+
 add_newline = true
-show_reset_command = true
+command_timeout = 1000
+scan_timeout = 100
 
-format = """
-$directory\
-$git_branch\
-$git_status\
-$python\
-$nodejs\
-$golang\
-$rust\
-$cmd_duration\
-$character
-"""
+[os]
+disabled = false
+format = "[$symbol]($style) "
+style = "bold blue"
+
+[username]
+show_always = true
+format = "[$user]($style)@"
+style_user = "bold yellow"
+style_root = "bold red"
+
+[hostname]
+ssh_only = false
+format = "[$hostname]($style) "
+style = "bold dimmed white"
 
 [directory]
 style = "bold blue"
 truncation_length = 3
 truncate_to_repo = true
+truncation_symbol = "…"
+read_only = " 🔒"
+format = "[$path]($style)[$read_only]($read_only_style) "
 
 [git_branch]
 symbol = "🌿 "
 style = "bold purple"
+format = "[$symbol$branch]($style) "
 
 [git_status]
+disabled = false
 style = "bold red"
-enabled = true
+format = "[$all_status$ahead_behind]($style) "
 
 [git_commit]
-format = "($commit)"
-style = "yellow"
+style = "bold yellow"
+format = "[$hash]($style) "
 
-[git_branch_overflow]
-symbol = "…"
-
-[git_diff]
-styles = {
-    added = "green bold",
-    modified = "yellow bold",
-    deleted = "red bold"
-}
-
-[python]
-symbol = "🐍 "
-style = "cyan"
-show_versions = true
+[java]
+symbol = "🅲 "
+style = "bold dimmed green"
+format = "[$symbol($version )]($style) "
 
 [nodejs]
 symbol = "⬢ "
-style = "green"
+style = "bold green"
+format = "[$symbol($version )]($style) "
+
+[python]
+symbol = "🐍 "
+style = "bold cyan"
+format = "[$symbol($version )]($style) "
 
 [golang]
 symbol = "🐹 "
-style = "magenta"
+style = "bold magenta"
+format = "[$symbol($version )]($style) "
 
 [rust]
 symbol = "🦀 "
-style = "red"
+style = "bold red"
+format = "[$symbol($version )]($style) "
 
 [cmd_duration]
 min_time = 1000
-format = "⏱ [$duration]($style)"
+style = "bold yellow"
+format = "[⏱ $duration]($style) "
+
+[status]
+disabled = false
+symbol = "❗"
+format = "$symbol "
+success_style = "bold green"
+failure_style = "bold red"
+
+[battery]
+disabled = false
+full_symbol = "🔋 "
+charging_symbol = "🔌 "
+discharging_symbol = "🪫 "
+unknown_symbol = "🔍 "
+empty_symbol = "🪫 "
+format = "[$symbol$percentage]($style) "
+display = [
+  { threshold = 20, style = "red bold", discharging_symbol = "🪫 " },
+  { threshold = 50, style = "yellow bold", discharging_symbol = "🔋 " },
+  { threshold = 100, style = "green bold", discharging_symbol = "🔋 " },
+]
+
+[time]
+disabled = false
+style = "bold dimmed white"
+format = "[$time]($style) "
 
 [character]
 success_symbol = "[❯](bold green)"
 error_symbol = "[❯](bold red)"
+vimcmd_symbol = "[❯](bold yellow)"

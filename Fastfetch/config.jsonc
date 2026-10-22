@@ -1,69 +1,98 @@
 {
-  "colors": "Catppuccin Mocha",
-  "display_mode": "system",
-  "deprecated": {
-    "display_mode": false
+  "$schema": "https://raw.githubusercontent.com/fastfetch-cli/fastfetch/dev/doc/json_schema.json",
+  "logo": {
+    "type": "builtin",
+    "source": "Windows 11_small",
+    "padding": {
+      "top": 0,
+      "bottom": 0,
+      "left": 0,
+      "right": 3
+    }
   },
-  "export_platform": "windows",
-  "blocks": [
+  "display": {
+    "brightColor": true,
+    "color": {
+      "keys": "#89b4fa",
+      "title": "#cdd6f4",
+      "output": "#cdd6f4",
+      "separator": "#585b70"
+    },
+    "key": {
+      "type": "both",
+      "language": "en"
+    },
+    "separator": ": "
+  },
+  "modules": [
     {
       "type": "os",
-      "style": "empty"
-    },
-    {
-      "type": "cpu",
-      "style": "ascii",
-      "ascii_char": ""
-    },
-    {
-      "type": "memory",
-      "style": "ascii",
-      "ascii_char": ""
-    },
-    {
-      "type": "disk",
-      "style": "ascii",
-      "ascii_char": ""
-    },
-    {
-      "type": "battery",
-      "style": "ascii",
-      "ascii_char": ""
-    },
-    {
-      "type": "disk_usage",
-      "style": "ascii",
-      "ascii_char": ""
-    },
-    {
-      "type": "timestamp",
-      "style": "simple",
-      "date_format": "dd/mm/yyyy",
-      "time_format": "HH:MM:ss"
+      "keyColor": "#74c7ec"
     },
     {
       "type": "host",
-      "style": "empty"
+      "keyColor": "#cba6f7"
     },
     {
-      "type": "python",
-      "style": "full",
-      "symbol": "🐍 "
+      "type": "kernel",
+      "keyColor": "#89dceb"
     },
     {
-      "type": "node",
-      "style": "full",
-      "symbol": "⬢ "
+      "type": "uptime",
+      "keyColor": "#f9e2af"
     },
     {
-      "type": "golang",
-      "style": "full",
-      "symbol": "🐹 "
+      "type": "shell",
+      "keyColor": "#94e2d5"
     },
     {
-      "type": "rust",
-      "style": "full",
-      "symbol": "🦀 "
+      "type": "terminal",
+      "keyColor": "#b4befe"
+    },
+    {
+      "type": "cpu",
+      "keyColor": "#fab387"
+    },
+    {
+      "type": "gpu",
+      "keyColor": "#f38ba8"
+    },
+    {
+      "type": "memory",
+      "keyColor": "#a6e3a1"
+    },
+    {
+      "type": "swap",
+      "keyColor": "#a6e3a1"
+    },
+    {
+      "type": "disk",
+      "keyColor": "#f5c2e7"
+    },
+    {
+      "type": "battery",
+      "keyColor": "#a6e3a1"
+    },
+    {
+      "type": "packages",
+      "keyColor": "#f2cdcd"
+    },
+    {
+      "type": "wifi",
+      "keyColor": "#89dceb"
+    },
+    {
+      "type": "users",
+      "keyColor": "#f5e0dc"
+    },
+    {
+      "type": "locale",
+      "keyColor": "#bac2de"
+    },
+    {
+      "type": "datetime",
+      "keyColor": "#585b70",
+      "format": "{weekday-short} {day-pretty} {month-name-short} {year}  {hour-pretty}:{minute-pretty}:{second-pretty}"
     }
   ]
 }
